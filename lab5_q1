@@ -1,0 +1,82 @@
+using System;
+
+public class Person
+{
+    private string name;
+
+    public Person()
+    {
+        name = null;
+    }
+
+    public Person(string name)
+    {
+        this.name = name;
+    }
+
+    public string Name
+    {
+        get { return name; }
+        set { name = value; }
+    }
+}
+
+public class Student : Person
+{
+    private string regNo;
+    private int age;
+    private Department program;
+
+    public Student() : base()
+    {
+        regNo = null;
+        age = 0;
+        program = Department.None;
+    }
+
+    public Student(string name, string regNo, int age, Department program) : base(name)
+    {
+        this.regNo = regNo;
+        this.age = age;
+        this.program = program;
+    }
+
+    public string RegNo
+    {
+        get { return regNo; }
+        set { regNo = value; }
+    }
+
+    public int Age
+    {
+        get { return age; }
+        set { age = value; }
+    }
+
+    public Department Program
+    {
+        get { return program; }
+        set { program = value; }
+    }
+}
+
+public enum Department
+{
+    None,
+    ComputerScience,
+    Mathematics,
+    Physics,
+    Chemistry
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Student student = new Student("John Doe", "20231234", 20, Department.ComputerScience);
+        Console.WriteLine($"Name: {student.Name}");
+        Console.WriteLine($"Registration Number: {student.RegNo}");
+        Console.WriteLine($"Age: {student.Age}");
+        Console.WriteLine($"Program: {student.Program}");
+    }
+}
